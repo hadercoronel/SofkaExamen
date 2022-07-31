@@ -1,26 +1,19 @@
 package com.sofka.modelo;
 
+import java.util.ArrayList;
+
 public class VehiculoTripulado extends Vehiculo {
-	private Tripulante tripulante; 
+	private ArrayList<Tripulante> tripulantes; 
 	private int numeroTripulante;
 	private String finUsoNave;
 	
-	public VehiculoTripulado(String agencia, String tipoCombustible, int empuje, int velocidad, int capacidadCarga, 
-			Tripulante tripulante, int numeroTripulante, String finUsoNave) {
+	public VehiculoTripulado(String agencia, String tipoCombustible, int empuje, int velocidad, int capacidadCarga, int numeroTripulante, String finUsoNave) {
 		super(agencia, tipoCombustible, empuje, velocidad, capacidadCarga);
-		this.tripulante = tripulante;
 		this.numeroTripulante = numeroTripulante;
 		this.finUsoNave = finUsoNave;
 	}
 	
 
-	public Tripulante getTripulante() {
-		return tripulante;
-	}
-
-	public void setTripulante(Tripulante tripulante) {
-		this.tripulante = tripulante;
-	}
 
 	public int getNumeroTripulante() {
 		return numeroTripulante;

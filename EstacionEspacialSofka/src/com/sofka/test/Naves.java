@@ -3,6 +3,7 @@ package com.sofka.test;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.sofka.controlador.TripulanteControlador;
 import com.sofka.modelo.Tripulante;
 import com.sofka.modelo.Vehiculo;
 import com.sofka.modelo.VehiculoLanzadera;
@@ -14,12 +15,26 @@ public class Naves {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Tripulante tripulante = new Tripulante("123456", "Hader", "ingeniero");
+		Tripulante tripulante2 = new Tripulante("125634", "alfonso", "medico militar");
+		
 		Vehiculo vehiculoLanzadera = new VehiculoLanzadera("nasa", "propelente", 35000, 33000, 120);
 		Vehiculo vehiculoNoTripulado = new VehiculoNoTripulados("nasa", "propelente", 35000, 33000, 120);
-		Vehiculo vehiculoTripulado = new VehiculoTripulado("nasa", "propelente", 35000, 33000, 120, tripulante, 3,
+		Vehiculo vehiculoTripulado = new VehiculoTripulado("nasa", "propelente", 35000, 33000, 120, 3,
 				"reparacion");
+		Vehiculo vehiculoTripulado2 = new VehiculoTripulado("nasa", "propelente", 35000, 33000, 120, 3,
+				"abastecimiento");
 		ArrayList<Vehiculo> vehiculo = new ArrayList();
-
+		TripulanteControlador controlTripulante= new TripulanteControlador();
+		
+		Tripulante respuesta=controlTripulante.buscarTripulante(tripulante.getCedula());
+		if(respuesta!=null) {
+		controlTripulante.agregarTripulante(tripulante);
+		}
+		Tripulante respuesta2=controlTripulante.buscarTripulante(tripulante2.getCedula());
+		if(respuesta2!=null) {
+		controlTripulante.agregarTripulante(tripulante2);
+		}
+		
 		vehiculo.add(vehiculoLanzadera);
 		vehiculo.add(vehiculoNoTripulado);
 		vehiculo.add(vehiculoTripulado);
@@ -33,8 +48,7 @@ public class Naves {
 		int nave = lecturaint.nextInt();
 		do {
 			switch (nave) {
-			// multiples cases sin declaraciones break
-
+			
 			case 1:
 
 				System.out.println("----Opcion 1 Vehiculo Lanzadera----");
@@ -78,8 +92,11 @@ public class Naves {
 				vehiculoTripulado.setVelocidad(lecturaint.nextInt());
 				System.out.println("Digite Capacidad Carga: ");
 				vehiculoTripulado.setCapacidadCarga(lecturaint.nextInt());
-				// System.out.println("Digite Capacidad Carga: "); vehiculoTripulado.Set
+				System.out.println("Digite Cedula Tripulante: "); 
+				
+				controlTripulante.buscarTripulante(lecturaStg.next());
 				vehiculo.add(vehiculoTripulado);
+				System.out.println("Digite Cedula Tripulante: "); 
 				break;
 
 			default:
