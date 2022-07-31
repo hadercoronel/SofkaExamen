@@ -4,16 +4,25 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 public class Conexion {
-	public static void main(String[] args) {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sofkaDB", "root",
-					"");
-			Statement stmt = con.createStatement();
-			//ResultSet rs = stmt.executeQuery("show databases;");
-			//System.out.println("Connected");
+	
+   static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+   //
+   static final String DB_URL = "jdbc:mysql://localhost:3306/sofkaDB";
+   
+   static final String USER = "root";
+   
+   static final String PASS = "";
+   
+   static Connection con = null;
+   
+   public void conectar(){
+	   try {
+		    con = DriverManager.getConnection(DB_URL, USER, PASS);
+		    
+		    System.out.println("conectado");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-	}
+   }
+	
 }
