@@ -62,9 +62,9 @@ public class Naves {
 		Scanner lecturaStg = new Scanner(System.in);
 		
 		do {
-			System.out.println("Seleccione un numero del 1-3 \n" + "para elegir el tipo de nave \n" + "que desea: \n\n"
+			System.out.println("Seleccione un numero del 1-6 \n" + "para elegir el tipo de nave \n" + "que desea: \n\n"
 					+ "1- Vehiculo Lanzadera. \n" + "2- Vehiculo No Tripulado. \n" + "3- Vehiculo Tripulado \n"
-					+ "4- Mostrar Vehiculo Lanzadera  \n" + "5- Mostrar Vehiculos Tripulado \n" + "6- Mostrar Vehiculos No Tripulado \n"
+					+ "4- Mostrar Vehiculo Lanzadera  \n" + "5- Mostrar Vehiculos No Tripulado \n" + "6- Mostrar Vehiculos Tripulado \n"
 					+ "Escriba: ");
 			int nave = lecturaint.nextInt();
 			switch (nave) {
